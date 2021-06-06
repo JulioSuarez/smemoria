@@ -1,0 +1,164 @@
+// ---------------------------------------------------------------------------
+
+#pragma hdrstop
+
+#include "CSMemJCST.h"
+// ---------------------------------------------------------------------------
+#pragma package(smart_init)
+
+CSMemoria::CSMemoria() {
+	mem = new NodoMem[MAX];
+	for (int i = 0; i < MAX; i++) {
+		mem[i].link = i + 1;
+	}
+	mem[MAX - 1].link = NULO;
+	libre = 0;
+}
+
+int CSMemoria::numero_ids(string id) {
+	if (id.length() == 0)
+		return 0;
+	int cont = 0;
+	for (int i = 0; i < id.length(); i++) {
+		if (id[i] == ',')
+			cont++;
+	}
+	return cont + 1;
+}
+
+string* CSMemoria::vector_ids(string cad) {
+	int n = numero_ids(cad);
+	string* vids = new string[n];
+	int c = 0;
+	while (cad.length() > 0) {
+		int pos = cad.find_first_of(",");
+		if (pos == -1)
+			pos = cad.length();
+		string id = cad.substr(0, pos);
+		vids[c] = id;
+		c++;
+		cad.erase(0, pos);
+	}
+	return vids;
+}
+
+int CSMemoria::new_espacio2(string cadena) {
+	int cant = numero_ids(cadena); // cant de terminos
+	int dir = this->libre; // dir = 0
+	int d = this->libre; // d = 0
+	string* ids = vector_ids(cadena); // ["dia", "mes", "año"]
+	int i = 0;
+		for (i = 0; i < cant - 1; i++) { // i= 0, 1, 2
+			mem[d].id = ids[i];
+			d = mem[d].link;
+		}
+		mem[d].id = ids[i];
+		this->libre = mem[d].link;
+		mem[d].link = -1;
+		return dir;
+
+}
+
+int CSMemoria::new_espacio(string cadena) {
+	int num = numero_ids(cadena);
+	int dir = this->libre;
+	int d = this->libre;
+	int aux;
+	if (num <= espacios_disponibles()) {
+		//dia,mes,año longitud = 11
+		while (cadena.length() > 0) {
+			int pos = cadena.find_first_of(",");4->8->
+			if (pos == NULO) {//si no existe una coma ","
+				pos = cadena.length();//toma toda la cadena
+				aux = d;//libre
+			}
+			string id = cadena.substr(0, pos); // ["dia", "mes", "año"]
+			mem[d].id = id; //en la posicion libre poner id
+			d = mem[d].link;//cambia el valor de link
+			cadena.erase(0, pos + 1);//borra lo insertado
+		}//repita el ciclo hasta que la cadena quede vacia
+		this->libre = mem[aux].link;
+		mem[aux].link = -1;
+		return dir;
+	}
+	else {
+		cout << "ERROR: ESPACIOS INSUFICIENTES\n";
+		return NULO;
+	}
+}
+
+void CSMemoria::delete_espacio(int dir) {
+	int x = dir;
+	while (mem[x].link != -1)
+		x = mem[x].link;
+	mem[x].link = libre;
+	libre = dir;
+}
+
+void CSMemoria::poner_dato(int dir, string cadena_id, int valor) {
+	int z = dir;
+	cadena_id = cadena_id.substr(2, cadena_id.length() - 2);
+	// Elimina la flecha
+	while (z != NULO) {
+		if (mem[z].id == cadena_id) {
+			mem[z].dato = valor;
+			break;
+		}
+		z = mem[z].link;
+	}
+}
+
+int CSMemoria::obtener_dato(int dir, string cadena_id) {
+	int z = dir;
+	cadena_id = cadena_id.substr(2, cadena_id.length() - 2);
+	// Elimina la flecha
+	while (z != NULO) {
+		if (mem[z].id == cadena_id)
+			return mem[z].dato;
+		z = mem[z].link;
+	}
+}
+
+int CSMemoria::espacios_disponibles() {
+	int x = libre;
+	int c = 0;
+	while (x != -1) {
+		c++;
+		x = mem[x].link;
+	}
+	return c;
+}
+
+int CSMemoria::espacios_ocupados() {
+	int c = MAX - espacios_disponibles();
+	return c;
+}
+
+bool CSMemoria::dir_libre(int dir) {
+	int x = libre;
+	bool c = false;
+	while (x != -1 && c == false) {
+		if (x == dir)
+			c = true;
+		x = mem[x].link;
+	}
+	return c;
+}
+
+void CSMemoria::mostrar_Julio() {
+	int esp = 10;
+	string cab = rellenar("dir", esp) + "|" + rellenar("id", esp) + "|" +
+		rellenar("dato", esp) + "|" + rellenar("link", esp);
+	string linea = repetir(cab.length(), '-');
+	cout << cab << endl << linea << endl;
+	for (int i = 0; i < MAX; i++) {
+		string datos = rellenar(to_string(i), esp) + "|" + rellenar(mem[i].id,
+			esp) + "|" + rellenar(to_string(mem[i].dato), esp) + "|" +
+			rellenar(to_string(mem[i].link), esp);
+		cout << datos << endl;
+	}
+	cout << linea << endl << "libre   :   " << to_string(libre) << endl;
+	cout << "Memoria Disponible   :   " << to_string(espacios_disponibles())
+		<< endl;
+	cout << "Memoria Ocupada  :   " << to_string(espacios_ocupados()) << endl;
+}
