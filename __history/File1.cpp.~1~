@@ -7,10 +7,19 @@ using namespace std;
 void menu(CSMemoria *mem);
 
 int main() {
+	// CSMemoria *mem;
+	// menu(mem);
 	string ids;
+	//char ids[20];
 	cout <<"Ingrese los Ids :"<<endl;
+	//cin.ignore();
+	//cin.ignore(15, '\n');
 	cin.clear();
+	//cin.getline(ids,20);
 	getline(cin, ids);
+	//cin>>ids;
+	//cout<<cin<<endl;
+	//cout<<ids<<endl;
 	CSMemoria* mem = new CSMemoria();
 	mem->new_espacio(ids);
 	cout << " memoria lista" << endl;

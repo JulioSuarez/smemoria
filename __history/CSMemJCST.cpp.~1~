@@ -67,7 +67,7 @@ int CSMemoria::new_espacio(string cadena) {
 	if (num <= espacios_disponibles()) {
 		//dia,mes,año longitud = 11
 		while (cadena.length() > 0) {
-			int pos = cadena.find_first_of(",");//4->8->
+			int pos = cadena.find_first_of(",");4->8->
 			if (pos == NULO) {//si no existe una coma ","
 				pos = cadena.length();//toma toda la cadena
 				aux = d;//libre
