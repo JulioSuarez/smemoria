@@ -48,95 +48,37 @@ int CSMemoria::new_espacio2(string cadena) {
 	int d = this->libre; // d = 0
 	string* ids = vector_ids(cadena); // ["dia", "mes", "año"]
 	int i = 0;
-	for (i = 0; i < cant - 1; i++) { // i= 0, 1, 2
+		for (i = 0; i < cant - 1; i++) { // i= 0, 1, 2
+			mem[d].id = ids[i];
+			d = mem[d].link;
+		}
 		mem[d].id = ids[i];
-		d = mem[d].link;
-	}
-	mem[d].id = ids[i];
-	this->libre = mem[d].link;
-	mem[d].link = -1;
-	return dir;
+		this->libre = mem[d].link;
+		mem[d].link = -1;
+		return dir;
 
 }
 
 int CSMemoria::new_espacio(string cadena) {
-	int num = numero_ids(cadena); /* num toma el valor de la cantidad de
-	 palabras ingresadas en la CADENA */
-	int dir = this->libre; /* dir toma el valor de libre
-	 que en este caso es 0 */
-	int d = this->libre; /* d toma el valor de libre
-	 que en este caso es 0 */
+	int num = numero_ids(cadena);
+	int dir = this->libre;
+	int d = this->libre;
 	int aux;
 	if (num <= espacios_disponibles()) {
-		/*
-		 si num es menor igual al espacio disponible
-		 num = 3
-		 espacio disponible = 20
-		 */
+		//dia,mes,año longitud = 11
 		while (cadena.length() > 0) {
-			/*
-			 mientras que la longitud de la cadena sea mayor que 0
-			 cadena = dia,mes,año
-			 longitud = 11 caracteres
-			 */
-			int pos = cadena.find_first_of(",");
-			/*
-			 pos tomara el valor de la cadena hasta la
-			 primera coma ","
-			 pos tomara el valor 4
-			 en el siguiente ciclo
-			 pos tomara el valor 8
-			 */
-			if (pos == NULO) {
-				/*
-				 suponiendo que la cadena es de una sola palabra
-				 ejemplo: dia
-				 osea si no existe una coma ","
-				 */
-				pos = cadena.length();
-				/*
-				 pos tomara toda la cadena
-				 tomando el ejemplo: dia entonces pos = 3
-				 */
-				aux = d;
-				// la variable aux tomara el valor de libre
+			int pos = cadena.find_first_of(",");//4->8->
+			if (pos == NULO) {//si no existe una coma ","
+				pos = cadena.length();//toma toda la cadena
+				aux = d;//libre
 			}
-			string id = cadena.substr(0, pos);
-			/*
-			 se pondra en id una parte de la cadena desde
-			 la posicion 0 hasta pos
-			 en el primer ciclo	dia
-			 en el segundo ciclo	mes
-			 en el tercer ciclo	año
-			 */
-			mem[d].id = id;
-			/*
-			 Memoria En la posicion libre que en este ciclo es 0
-			 poner id en este ejemplo entraria dia
-			 */
-			d = mem[d].link;
-			/*
-			 en este primer ciclo
-			 d que estaba inicialmente en 0
-			 cambia el valor al de link en este caso 1
-			 entonces d=1
-			 */
-			cadena.erase(0, pos + 1);
-			/*
-			 de la cadena dia,mes,año
-			 borra lo insertado en el primer ciclo "dia"
-			 quedando en la cadena mes,año para el siguiente ciclo
-			 */
-		} // repita el ciclo hasta que la cadena quede vacia
+			string id = cadena.substr(0, pos); // ["dia", "mes", "año"]
+			mem[d].id = id; //en la posicion libre poner id
+			d = mem[d].link;//cambia el valor de link
+			cadena.erase(0, pos + 1);//borra lo insertado
+		}//repita el ciclo hasta que la cadena quede vacia
 		this->libre = mem[aux].link;
-		/*
-		 libre tomara el valor de link en aux
-		 */
 		mem[aux].link = -1;
-		/*
-		 mem[aux].link indica la ultima posicion de link
-		 el cual tomara el valor -1
-		 */
 		return dir;
 	}
 	else {

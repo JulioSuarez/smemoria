@@ -72,7 +72,6 @@ string *vector_ids(string ids) {
 }
 
 // ---------complementos para mostrar_Julio
-
 string repetir(unsigned int cantidad, char c) {
 	return std::string(cantidad, c);
 }
