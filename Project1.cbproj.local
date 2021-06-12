@@ -4,12 +4,12 @@
     <Transaction>2021/06/02 10:17:19.000.180,=C:\Users\julio\OneDrive\Documentos\Embarcadero\Studio\Projects\Project1PCH1.h</Transaction>
     <Transaction>2021/06/02 10:17:19.000.195,=C:\Users\julio\OneDrive\Documentos\Embarcadero\Studio\Projects\File1.cpp</Transaction>
     <Transaction>2021/06/02 10:20:15.000.293,=C:\Users\julio\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.cpp</Transaction>
-    <Transaction>2021/06/02 10:20:29.000.393,C:\Users\julio\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.cpp=C:\Users\julio\OneDrive\Documentos\Embarcadero\Studio\Projects\CSMemJCST.cpp</Transaction>
-    <Transaction>2021/06/02 10:20:29.000.393,C:\Users\julio\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.h=C:\Users\julio\OneDrive\Documentos\Embarcadero\Studio\Projects\CSMemJCST.h</Transaction>
-    <Transaction>2021/06/02 13:03:13.000.303,C:\Users\julio\OneDrive\Documentos\Embarcadero\Studio\Projects\CSMemJCST.cpp=C:\Users\julio\OneDrive\Escritorio\1\1 SMemoria\CSMemJCST.cpp</Transaction>
-    <Transaction>2021/06/02 13:03:13.000.303,C:\Users\julio\OneDrive\Documentos\Embarcadero\Studio\Projects\CSMemJCST.h=C:\Users\julio\OneDrive\Escritorio\1\1 SMemoria\CSMemJCST.h</Transaction>
-    <Transaction>2021/06/02 13:03:15.000.392,C:\Users\julio\OneDrive\Documentos\Embarcadero\Studio\Projects\File1.cpp=C:\Users\julio\OneDrive\Escritorio\1\1 SMemoria\File1.cpp</Transaction>
-    <Transaction>2021/06/02 13:03:16.000.455,C:\Users\julio\OneDrive\Documentos\Embarcadero\Studio\Projects\Project1PCH1.h=C:\Users\julio\OneDrive\Escritorio\1\1 SMemoria\Project1PCH1.h</Transaction>
-    <Transaction>2021/06/02 13:03:17.000.679,C:\Users\julio\OneDrive\Documentos\Embarcadero\Studio\Projects\Project1.cbproj=C:\Users\julio\OneDrive\Escritorio\1\1 SMemoria\Project1.cbproj</Transaction>
+    <Transaction>2021/06/02 10:20:29.000.393,C:\Users\julio\OneDrive\Documentos\Embarcadero\Studio\Projects\CSMemJCST.cpp=C:\Users\julio\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.cpp</Transaction>
+    <Transaction>2021/06/02 10:20:29.000.393,C:\Users\julio\OneDrive\Documentos\Embarcadero\Studio\Projects\CSMemJCST.h=C:\Users\julio\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.h</Transaction>
+    <Transaction>2021/06/02 13:03:13.000.303,C:\Users\julio\OneDrive\Escritorio\1\1 SMemoria\CSMemJCST.cpp=C:\Users\julio\OneDrive\Documentos\Embarcadero\Studio\Projects\CSMemJCST.cpp</Transaction>
+    <Transaction>2021/06/02 13:03:13.000.303,C:\Users\julio\OneDrive\Escritorio\1\1 SMemoria\CSMemJCST.h=C:\Users\julio\OneDrive\Documentos\Embarcadero\Studio\Projects\CSMemJCST.h</Transaction>
+    <Transaction>2021/06/02 13:03:15.000.392,C:\Users\julio\OneDrive\Escritorio\1\1 SMemoria\File1.cpp=C:\Users\julio\OneDrive\Documentos\Embarcadero\Studio\Projects\File1.cpp</Transaction>
+    <Transaction>2021/06/02 13:03:16.000.455,C:\Users\julio\OneDrive\Escritorio\1\1 SMemoria\Project1PCH1.h=C:\Users\julio\OneDrive\Documentos\Embarcadero\Studio\Projects\Project1PCH1.h</Transaction>
+    <Transaction>2021/06/02 13:03:17.000.679,C:\Users\julio\OneDrive\Escritorio\1\1 SMemoria\Project1.cbproj=C:\Users\julio\OneDrive\Documentos\Embarcadero\Studio\Projects\Project1.cbproj</Transaction>
   </Transactions>
 </BorlandProject>
